@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cadastro-resultado',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastro-resultado.component.scss']
 })
 export class CadastroResultadoComponent implements OnInit {
+  @Input() mensagem: string;
+  @Input() titulo: string;
 
   constructor() { }
 

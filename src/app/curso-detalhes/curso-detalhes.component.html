@@ -1,1 +1,16 @@
-<p>curso-detalhes works!</p>
+<div class="detalhes-curso" *ngIf="curso"><div class="wrapper">
+  <h2>{{curso.nome}}</h2>
+  <br>
+  <iframe width="560" height="315" [src]="safe_url" *ngIf="safe_url"
+   frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <p>{{curso.desc}}</p>
+  <div class="grid-container"><div class="grid-x grid-padding-x small-up-3">
+
+    <div class="cell"><p>Carga horária: {{curso.carga_horaria}}</p></div>
+    <div class="cell"><p>Data de início: {{curso.inicio}}</p></div>
+    <div class="cell"><p>Dias da semana: {{curso.dias_semana}}</p></div>
+
+  </div></div>
+  <button class="button" (click)="voltar()">Voltar</button>
+  <a routerLink="/cadastro/{{curso.id}}" class="button">Cadastrar</a>
+</div></div>

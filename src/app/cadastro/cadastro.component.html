@@ -1,1 +1,55 @@
-<p>cadastro works!</p>
+<section class="form" *ngIf="curso && !resultado"><div class="wrapper">
+
+<div class="grid-container"><div class="grid-x grid-margin-x small-up-1">
+  <div class="cell"><h2>Cadastro</h2></div>
+</div></div>
+
+<div class="grid-container"><div class="grid-x grid-margin-x small-up-1 medium-up-2">
+  <div class="cell"><label>
+    Nome* <input class="form-control" [(ngModel)]="usuario.nome" #nome="ngModel"
+    type="text" placeholder="Nome" (ngModelChange)="usuario.nome = $event.toUpperCase()" maxlength="255" appValidaNome required/>
+    <div class="callout alert small" *ngIf="nome.invalid && (nome.dirty || nome.touched)">
+      <div *ngIf="nome.errors.required">Nome é um campo obrigatório.</div>
+      <div *ngIf="nome.errors.appValidaNome">Nome invalido.</div>
+    </div>
+  </label></div>
+
+  <div class="cell"><label>
+    Email* <input [(ngModel)]="usuario.email" #email="ngModel" type="email" placeholder="exemplo@servico.com" email maxlength="255" required/>
+    <div class="callout alert small" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors.required">Email é um campo obrigatório.</div>
+      <div *ngIf="email.errors.email">Este email é inválido.</div>
+    </div>
+  </label></div>
+
+  <div class="cell"><label>
+    Data de Nascimento* <input [(ngModel)]="usuario.nascimento" #nascimento="ngModel" type="date" placeholder="Data de Nascimento" appValidaIdade required/>
+    <div class="callout alert small" *ngIf="nascimento.invalid && (nascimento.dirty || nascimento.touched)">
+      <div *ngIf="nascimento.errors.required">Data de nascimento é um campo obrigatório.</div>
+      <div *ngIf="nascimento.errors.appValidaIdade && !nascimento.errors.required">O candidato deve ser maior de 18 anos.</div>
+    </div>
+  </label></div>
+
+  <div class="cell"><label>
+    Telefone <input [(ngModel)]="usuario.telefone" #telefone="ngModel" type="tel" placeholder="xx xxxxx xxxx" minlength="10" maxlength="14" appValidaFone/>
+    <div class="callout alert small" *ngIf="telefone.invalid && (telefone.dirty || telefone.touched)">
+      <div *ngIf="telefone.errors.appValidaFone || telefone.errors.minlength">Telefone inválido.</div>
+    </div>
+  </label></div>
+</div></div>
+
+<div class="grid-container"><div class="grid-x grid-margin-x small-up-2">
+  <div class="cell">
+    <button class="button" (click)="voltar()">Voltar</button>
+    <button class="button" (click)="enviar()" [disabled]="!nome.valid || !email.valid || !nascimento.valid || !telefone.valid">Inscrever-se</button>
+  </div>
+</div></div>
+
+</div></section>
+<div class="callout alert" *ngIf="resultado != null && resultado != 0">
+  <div *ngIf="resultado == 1">Usuário já registrado!</div>
+  <div *ngIf="resultado == 2">Um argumento obrigatório está faltando!</div>
+  <div *ngIf="resultado == 3">Um argumento teve entrada inválida!</div>
+  <div *ngIf="resultado != 0 && resultado != 1 && resultado != 2 && resultado != 3">{{resultado}}</div>
+</div>
+<app-cadastro-resultado *ngIf="resultado == 0" [mensagem]="curso.cadastro_sucesso" [titulo]="curso.nome"></app-cadastro-resultado>
