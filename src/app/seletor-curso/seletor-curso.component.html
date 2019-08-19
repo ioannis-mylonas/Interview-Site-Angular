@@ -1,0 +1,10 @@
+<div *ngIf="cursos"><div class="wrapper">
+
+<div class="grid-container"><div class="grid-x grid-margin-x small-1 medium-up-3">
+  <a class="cell" *ngFor="let curso of cursos" routerLink="/detalhes/{{curso.id}}">
+    <h3>{{curso.nome}}</h3>
+    <p>{{curso.desc_pequena}}</p>
+  </a>
+</div></div>
+
+</div></div>

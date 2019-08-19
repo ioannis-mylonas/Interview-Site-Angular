@@ -1,0 +1,16 @@
+.grid-container {
+  margin: 4em 0;
+
+  .cell {
+    border-radius: 25px;
+    padding: 1em;
+    margin-bottom: 2em;
+    background-color: rgba(0, 128, 0, 0.3);
+
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .cell:hover {
+    background-color: rgba(0, 128, 0, 0.2);
+  }
+}
