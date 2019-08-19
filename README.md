@@ -21,3 +21,8 @@ npm install animejs
 # Créditos  
   
 A imagem usada na página principal (presente em src/assets) veio de Pexels, usuária Helena Lopes.  
+  
+# Nota
+  
+Caso não esteja conectado à WebAPI, não será possível conseguir os cursos cadastrados e, portanto, nada será listado 
+impossibilitando o cadastro.
