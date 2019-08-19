@@ -20,4 +20,4 @@ npm install animejs
   
 # Créditos  
   
-A imagem usada na página principal (presente em src/assets) veio de Pexels, usuária Helena Lopes.
+A imagem usada na página principal (presente em src/assets) veio de Pexels, usuária Helena Lopes.  
